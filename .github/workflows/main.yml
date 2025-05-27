@@ -1,0 +1,40 @@
+name: CI for MEAN Stack
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install backend dependencies
+      run: |
+        cd angular-realworld-example-app/api
+        npm install
+
+    - name: Install frontend dependencies
+      run: |
+        cd angular-realworld-example-app
+        npm install
+
+    - name: Run backend tests
+      run: |
+        cd angular-realworld-example-app/api
+        npm test
+
+    - name: Run frontend tests
+      run: |
+        cd angular-realworld-example-app
+        npm run test -- --watch=false --browsers=ChromeHeadless
