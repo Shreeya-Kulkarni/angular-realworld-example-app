@@ -21,4 +21,4 @@ jobs:
 
       - name: run docker command
         shell: bash
-        run: docker run -p 4200:4200 -d angularapp:v1
+        run: sudo docker run -p 4200:4200 -d angularapp:v1
