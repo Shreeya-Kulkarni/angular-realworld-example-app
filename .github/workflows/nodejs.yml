@@ -19,11 +19,6 @@ jobs:
         with:
           node-version: 20.15.1
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install Angular CLI -2
-        run: npm install -g @angular/cli
-
-      - name: Run Angular build
-        run: ng build
+      - name: run docker command
+        shell: bash
+        run: docker run -p 4200:4200 -d angularapp:v1
