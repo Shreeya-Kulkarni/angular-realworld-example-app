@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: demo-3
+    runs-on: self-hosted
 
     steps:
       - name: Checkout repository
@@ -21,4 +21,4 @@ jobs:
 
       - name: run docker command
         shell: bash
-        run: docker run -p 4200:4200 -d angularapp:v3
+        run: sudo docker run -p 4200:4200 -d angularapp:v3
