@@ -19,6 +19,6 @@ jobs:
         with:
           node-version: 20.15.1
 
-      - name: run docker command
+      - name: run docker  command
         shell: bash
         run: sudo docker run -p 4200:4200 -d angularapp:v2
